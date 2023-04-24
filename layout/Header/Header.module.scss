@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(0, 0%, 100%);
+  padding: 1rem 4rem;
+  box-shadow: 0 1px 5px 1px #eee;
+}
+
+.header > h1 {
+  font-weight: 800;
+}
+
+.header > button {
+  border: unset;
+  background-color: unset;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+}
