@@ -1,13 +1,17 @@
 
 import type { NextPage } from 'next'
-import Filters from './components/filters/Filters'
-// import Image from 'next/image'
+import CountryList from '../components/CountryList/CountryList'
+import Filters from '../components/filters/Filters'
 import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
+
   return (
     <main className={styles.main}>
-      <Filters />
+      <div className={styles.container}>
+        <Filters />
+        <CountryList />
+      </div>
     </main>
   )
 }

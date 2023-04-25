@@ -1,0 +1,51 @@
+.selectRegion {
+  position: relative;
+
+  .input {
+    width: 170px;
+    background-color: hsl(0, 0%, 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 5px 1px #eee;
+    padding: 1rem;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    user-select: none;
+    font-weight: 600;
+  }
+
+  .options {
+    background-color: hsl(0, 0%, 100%);
+    position: absolute;
+    width: 100%;
+    margin-top: 5px;
+    box-shadow: 0 1px 5px 1px #eee;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+
+    p {
+      padding: 0.3rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: 300;
+    }
+
+    p:hover {
+      background-color: #eee;
+    }
+  }
+
+  .Hideoptions {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .selectRegion {
+    margin: 2rem 0;
+  }
+}

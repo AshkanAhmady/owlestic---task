@@ -1,0 +1,21 @@
+.countryList {
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 60px;
+  column-gap: 20px;
+
+  a {
+    text-decoration: unset;
+    color: unset;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .countryList {
+    justify-content: center;
+    margin-top: 0;
+  }
+}

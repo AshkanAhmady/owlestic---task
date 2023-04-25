@@ -1,6 +1,6 @@
-import Search from "./Search";
-import SelectRegion from "./SelectRegion";
 import styles from "./Filters.module.scss"
+import Search from "./search/Search";
+import SelectRegion from "./selectRegion/SelectRegion";
 
 const Filters = () => {
     return (

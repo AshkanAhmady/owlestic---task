@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RegionSelectOptionsType } from "../../types";
+import { RegionSelectOptionsType } from "../../../types";
 import styles from "./SelectRegion.module.scss"
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'

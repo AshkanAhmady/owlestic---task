@@ -1,26 +1,10 @@
 @import url("https://fonts.cdnfonts.com/css/nunito-sans");
 
-$dark-theme: false !default;
-$bg: #ffffff !default;
-$text: #000000 !default;
-$brand: #456789 !default;
-
-@if $dark-theme {
-  $bg: #111111;
-  $text: #eeeeee;
-  $brand: #abcdef;
-}
-
-p {
-  color: $text;
-  background-color: $bg;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito Sans";
 }
 
 body {

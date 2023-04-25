@@ -1,0 +1,166 @@
+.countryDetail {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .flag {
+    width: 570px;
+    position: relative;
+
+    img {
+      object-fit: cover;
+      z-index: 1;
+    }
+  }
+
+  .allDetails {
+    padding: 2rem 0;
+    margin-left: 2rem;
+
+    h1 {
+      font-weight: 800;
+    }
+
+    .informations {
+      padding: 2rem 0;
+      display: flex;
+      gap: 9rem;
+
+      div {
+        font-size: 14px;
+        padding-bottom: 0.3rem;
+        font-size: 16px;
+
+        div {
+          span {
+            font-weight: 300;
+            display: inline-block;
+            margin-top: 0.4rem;
+          }
+
+          span:first-of-type {
+            font-weight: 600;
+            margin-right: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .borders {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+
+      p {
+        margin-right: 10px;
+        font-weight: 600;
+        font-size: 17px;
+      }
+
+      div {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        span {
+          background-color: hsl(0, 0%, 100%);
+          box-shadow: 0 1px 5px 1px #eee;
+          padding: 0.3rem 1rem;
+          font-size: 14px;
+          border-radius: 4px;
+          user-select: none;
+          font-weight: 300;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .countryDetail {
+    .flag {
+      width: 45%;
+    }
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .countryDetail {
+    .allDetails {
+      .informations {
+        gap: 5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .countryDetail {
+    .allDetails {
+      .informations {
+        gap: 3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .countryDetail {
+    .flag {
+      width: 60%;
+    }
+
+    .allDetails {
+      .informations {
+        flex-direction: column;
+      }
+
+      .borders {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .countryDetail {
+    flex-direction: column;
+    .flag {
+      width: 100%;
+      height: 400px;
+    }
+
+    .allDetails {
+      margin: 0;
+
+      .informations {
+        gap: 0;
+        padding: 1rem 0 2rem 0;
+      }
+      .borders {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .countryDetail {
+    .flag {
+      height: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .countryDetail {
+    .flag {
+      height: 200px;
+    }
+  }
+}
