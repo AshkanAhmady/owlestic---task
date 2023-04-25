@@ -1,10 +1,14 @@
 import Image from "next/image";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import numberSpliter from "../../utils/numberSpliter";
 import styles from "./CountryDetail.module.scss"
 
 const CountryDetail = () => {
+    const { theme } = useContext(ThemeContext)
+
     return (
-        <div className={styles.countryDetail}>
+        <div className={`${styles.countryDetail} ${styles[theme]}`}>
             <div className={styles.flag}>
                 <Image
                     src="https://flagcdn.com/de.svg"

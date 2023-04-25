@@ -4,22 +4,24 @@ import Layout from '../layout/Layout'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Provider } from 'react-redux';
-import { store } from '../redux/store';
+// import { Provider } from 'react-redux';
+// import { store } from '../redux/store';
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { wrapper } from '../redux/store';
+import { ThemeProvider } from '../context/ThemeContext';
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  console.log("rerendered two times")
-
   return <>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
+    <ThemeProvider>
       <Layout>
         <Component {...pageProps} />
         <ToastContainer />
       </Layout>
-    </Provider>
+    </ThemeProvider>
+    {/* </Provider> */}
   </>
 }
 

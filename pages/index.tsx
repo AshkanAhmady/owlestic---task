@@ -2,8 +2,8 @@
 import type { NextPage } from 'next'
 import { Suspense, useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import { useAppDispatch, useAppSelector } from '../hooks/toolkitHooks'
-import { fetchAllCountries } from '../redux/country/actions'
+// import { useAppDispatch, useAppSelector } from '../hooks/toolkitHooks'
+// import { fetchAllCountries } from '../redux/country/actions'
 import styles from '../styles/Home.module.scss'
 import Loading from '../components/Loading/Loading'
 const CountryList = dynamic(() => import("../components/CountryList/CountryList"))
@@ -33,10 +33,3 @@ const Home: NextPage = () => {
 
 export default Home
 
-export async function getServerSideProps() {
-  return {
-    props: {
-      countries: "dd"
-    }
-  }
-}

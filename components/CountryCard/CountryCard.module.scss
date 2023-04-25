@@ -1,9 +1,11 @@
+@use "../../styles/abstracts/colors" as *;
+
 .singleCountry {
   width: 300px;
-  background-color: hsl(0, 0%, 100%);
+  background-color: $lightElement;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 1px 5px 1px #eee;
+  box-shadow: $lightShadow;
   padding-bottom: 2rem;
 
   div.image {
@@ -39,6 +41,15 @@
         font-weight: 300;
       }
     }
+  }
+}
+
+.dark {
+  box-shadow: $darkShadow;
+  background-color: $darkElement;
+
+  .detail {
+    color: $darkText;
   }
 }
 

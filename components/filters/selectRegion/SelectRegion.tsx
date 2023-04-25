@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RegionSelectOptionsType } from "../../../types";
 import styles from "./SelectRegion.module.scss"
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const options = [
     { value: "africa", label: "Africa" },
@@ -18,6 +19,7 @@ const SelectRegion = () => {
     const [selected, setSelected] = useState({ value: "", label: "Filter by Region" })
     const [icon, setIcon] = useState(faAngleDown)
     const [showOptions, setShowOptions] = useState(false)
+    const { theme } = useContext(ThemeContext)
 
     const showOptionsHandler = () => {
         setIcon((prev) => prev == faAngleDown ? faAngleUp : faAngleDown)
@@ -32,7 +34,7 @@ const SelectRegion = () => {
     }
 
     return (
-        <div className={styles.selectRegion}>
+        <div className={`${styles.selectRegion} ${styles[theme]}`}>
             <div onClick={showOptionsHandler} className={styles.input}>
                 <span>{selected.label}</span>
                 <FontAwesomeIcon

@@ -1,13 +1,15 @@
+@use "../../../styles/abstracts/colors" as *;
+
 .selectRegion {
   position: relative;
 
   .input {
     width: 170px;
-    background-color: hsl(0, 0%, 100%);
+    background-color: $lightElement;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 5px 1px #eee;
+    box-shadow: $lightShadow;
     padding: 1rem;
     font-size: 14px;
     cursor: pointer;
@@ -17,11 +19,11 @@
   }
 
   .options {
-    background-color: hsl(0, 0%, 100%);
+    background-color: $lightElement;
     position: absolute;
     width: 100%;
     margin-top: 5px;
-    box-shadow: 0 1px 5px 1px #eee;
+    box-shadow: $lightShadow;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -41,6 +43,24 @@
 
   .Hideoptions {
     display: none;
+  }
+}
+
+.dark {
+  .input {
+    background-color: $darkElement;
+    box-shadow: $darkShadow;
+    color: $darkText;
+  }
+
+  .options {
+    background-color: $darkBG;
+    box-shadow: $darkShadow;
+    color: $darkText;
+
+    p:hover {
+      background-color: $darkElement;
+    }
   }
 }
 

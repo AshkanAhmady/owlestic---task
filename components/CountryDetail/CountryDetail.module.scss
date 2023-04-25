@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/colors" as *;
+
 .countryDetail {
   margin-top: 2rem;
   width: 100%;
@@ -66,14 +68,28 @@
         flex-wrap: wrap;
 
         span {
-          background-color: hsl(0, 0%, 100%);
-          box-shadow: 0 1px 5px 1px #eee;
+          background-color: $lightElement;
+          box-shadow: $lightShadow;
           padding: 0.3rem 1rem;
           font-size: 14px;
           border-radius: 4px;
           user-select: none;
           font-weight: 300;
           gap: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .allDetails {
+    color: $darkText;
+    .borders {
+      div {
+        span {
+          background-color: $darkElement;
+          box-shadow: $darkShadow;
         }
       }
     }

@@ -1,10 +1,14 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useContext } from 'react'
+import { ThemeContext } from '../../../context/ThemeContext'
 import styles from "./Search.module.scss"
 
 const Search = () => {
+    const { theme } = useContext(ThemeContext)
+
     return (
-        <form className={styles.searchForm} action="">
+        <form className={`${styles.searchForm} ${styles[theme]}`} action="">
             <input placeholder="Search for a country..." type="text" />
             <button>
                 <FontAwesomeIcon

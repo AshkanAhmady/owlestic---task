@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/colors" as *;
+
 .detailPage {
   display: flex;
   flex-direction: column;
@@ -11,11 +13,11 @@
 
     button {
       border: unset;
-      background-color: hsl(0, 0%, 100%);
+      background-color: $lightElement;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 1px 5px 1px #eee;
+      box-shadow: $lightShadow;
       padding: 0.5rem 1.5rem;
       font-size: 14px;
       cursor: pointer;
@@ -23,6 +25,16 @@
       user-select: none;
       font-weight: 300;
       gap: 0.5rem;
+    }
+  }
+}
+
+.dark {
+  .container {
+    button {
+      background-color: $darkElement;
+      box-shadow: $darkShadow;
+      color: $darkText;
     }
   }
 }

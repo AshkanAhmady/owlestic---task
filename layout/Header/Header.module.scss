@@ -1,8 +1,11 @@
+@use "../../styles/abstracts/colors" as *;
+
 .header {
+  height: 65px;
   width: 100%;
-  background-color: hsl(0, 0%, 100%);
-  padding: 1rem 2rem;
-  box-shadow: 0 1px 5px 1px #eee;
+  background-color: $lightElement;
+  padding: 0 2rem;
+  box-shadow: $lightShadow;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,6 +33,17 @@
   }
 }
 
+// dark mode
+.dark {
+  background-color: $darkElement;
+  color: $darkText;
+
+  button {
+    color: $darkText;
+  }
+}
+
+//media query
 @media screen and (max-width: 400px) {
   .header {
     padding: 1rem;
