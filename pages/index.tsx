@@ -1,27 +1,31 @@
 
 import type { NextPage } from 'next'
-import { useEffect } from 'react'
-import CountryList from '../components/CountryList/CountryList'
-import Filters from '../components/filters/Filters'
+import { Suspense, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import { useAppDispatch, useAppSelector } from '../hooks/toolkitHooks'
 import { fetchAllCountries } from '../redux/country/actions'
 import styles from '../styles/Home.module.scss'
+import Loading from '../components/Loading/Loading'
+const CountryList = dynamic(() => import("../components/CountryList/CountryList"))
+const Filters = dynamic(() => import('../components/filters/Filters'))
 
 const Home: NextPage = () => {
-  const dispatch = useAppDispatch()
-  const data = useAppSelector((state) => state)
+  // const dispatch = useAppDispatch()
+  // const data = useAppSelector((state) => state)
 
-  console.log(data)
+  // console.log(data)
 
-  useEffect(() => {
-    dispatch(fetchAllCountries())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(fetchAllCountries())
+  // }, [])
 
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <Filters />
-        <CountryList />
+        <Suspense fallback={<Loading />}>
+          <Filters />
+          <CountryList />
+        </Suspense>
       </div>
     </main>
   )

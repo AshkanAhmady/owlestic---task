@@ -1,11 +1,16 @@
-import Header from "./Header/Header";
+import { Suspense } from "react";
 import { ChildsComponentsType } from "./types";
+import dynamic from "next/dynamic";
+import Loading from "../components/Loading/Loading";
+const Header = dynamic(() => import("./Header/Header"))
 
 const Layout: React.FC<ChildsComponentsType> = ({ children }) => {
     return (
         <div>
-            <Header />
-            {children}
+            <Suspense fallback={<Loading />}>
+                <Header />
+                {children}
+            </Suspense>
         </div>
     );
 }

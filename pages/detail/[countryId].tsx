@@ -1,8 +1,11 @@
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router';
-import CountryDetail from '../../components/CountryDetail/CountryDetail';
 import styles from "./DetailPage.module.scss"
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import Loading from '../../components/Loading/Loading';
+const CountryDetail = dynamic(() => import("../../components/CountryDetail/CountryDetail"))
 
 const DetailPage = () => {
 
@@ -17,7 +20,9 @@ const DetailPage = () => {
                     />
                     <span>Back</span>
                 </button>
-                <CountryDetail />
+                <Suspense fallback={<Loading />}>
+                    <CountryDetail />
+                </Suspense>
             </div>
         </main>
     );

@@ -1,6 +1,7 @@
 import styles from "./Filters.module.scss"
-import Search from "./search/Search";
-import SelectRegion from "./selectRegion/SelectRegion";
+import dynamic from "next/dynamic";
+const Search = dynamic(() => import("./search/Search"))
+const SelectRegion = dynamic(() => import("./selectRegion/SelectRegion"))
 
 const Filters = () => {
     return (
