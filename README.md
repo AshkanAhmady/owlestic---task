@@ -31,3 +31,6 @@ config: configuration the axios, handeling errors with interseptors and toastify
 
 ## demo link
 https://owlestic-task.netlify.app/
+
+## NOTICE
+because of using the filtered api. You must use vpn to view the site
