@@ -55,14 +55,14 @@ const CountryDetail = ({ country }: any) => {
                         </div>
                         <div>
                             <span>Languages:</span>
-                            <span>{_.pluck(country.languages, 'name').join(", ")}</span>
+                            <span>{_.pluck(country?.languages, 'name').join(", ")}</span>
                         </div>
                     </div>
                 </div>
                 <div className={styles.borders}>
                     <p>Border Countries:</p>
                     <div>
-                        {country.borders.map((border: string, index: number) => {
+                        {country?.borders?.map((border: string, index: number) => {
                             return <span key={index}>{border}</span>
                         })}
                     </div>

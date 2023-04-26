@@ -5,6 +5,8 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ThemeContext } from "../../../context/ThemeContext";
+import { useAppDispatch } from "../../../hooks/toolkitHooks";
+import { filterByRegion, setSelectedOption } from "../../../redux/country/countrySlice";
 
 const options = [
     { value: "africa", label: "Africa" },
@@ -20,6 +22,7 @@ const SelectRegion = () => {
     const [icon, setIcon] = useState(faAngleDown)
     const [showOptions, setShowOptions] = useState(false)
     const { theme } = useContext(ThemeContext)
+    const dispatch = useAppDispatch();
 
     const showOptionsHandler = () => {
         setIcon((prev) => prev == faAngleDown ? faAngleUp : faAngleDown)
@@ -30,7 +33,8 @@ const SelectRegion = () => {
         setSelected(option)
         setIcon((prev) => prev == faAngleDown ? faAngleUp : faAngleDown)
         setShowOptions(!showOptions)
-        // and send request to do filter
+        dispatch(setSelectedOption(option));
+        dispatch(filterByRegion(option));
     }
 
     return (

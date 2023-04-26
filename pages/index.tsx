@@ -16,7 +16,7 @@ const Filters = dynamic(() => import('../components/filters/Filters'))
 
 const Home: NextPage = ({ countries }: any) => {
 
-  const { data, loading, error } = useAppSelector((state) => state.allSlices.countries);
+  const { filterCountries, loading, error } = useAppSelector((state) => state.allSlices.countries);
 
   const dispatch = useAppDispatch()
 
@@ -31,7 +31,7 @@ const Home: NextPage = ({ countries }: any) => {
     <main className={styles.main}>
       <div className={styles.container}>
         <Filters />
-        <CountryList countries={data} />
+        <CountryList countries={filterCountries} />
       </div>
     </main>
   )
