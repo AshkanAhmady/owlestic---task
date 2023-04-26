@@ -30,3 +30,4 @@ yarn dev
 config: configuration the axios, handeling errors with interseptors and toastify, define baseURL & create requestClass to handle all request methods
 
 ## demo link
+https://owlestic-task.netlify.app/
