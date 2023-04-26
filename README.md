@@ -10,25 +10,23 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Folders
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+(Components) => that have all components used in pages and i tried to write reusables the components as much as possible and all of this component are LazyLoad.\
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+(Context) => this context has globl theme value that all component have access to this value. and this value saved to localStorage to we have theme valuse also, when we refresh the page.\
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+(hook) => at them moment this folder just have to hooks (useAppDispatch, useAppSelector) that they associated with (redux-toolkit).\
 
-## Learn More
+(layout) => the global layout that all component wraped with that.\
 
-To learn more about Next.js, take a look at the following resources:
+(pages) => we just have two page (index, details).\
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(redux) => with manage the global states, i use the redux-toolkit that more comfortable than pure redux, and i separate the actions and reducers.\
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+(styles) => have global styles and variables in sass that used for (dark mode).\
 
-## Deploy on Vercel
+(utils) => numberSpliter: split numbers(like population in cards) to read easier the numbers
+config: configuration the axios, handeling errors with interseptors and toastify, define baseURL & create requestClass to handle all request methods
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## demo link
