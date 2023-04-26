@@ -12,3 +12,15 @@ export const fetchAllCountries = createAsyncThunk(
     }
   }
 );
+
+export const fetchSingleCountry = createAsyncThunk(
+  "singleCountry/fetchSingleCountry",
+  async (payload: any, { rejectWithValue }) => {
+    try {
+      const data: any = await request.get(`/name/${payload}`);
+      return data[0];
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

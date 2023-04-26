@@ -1,35 +1,40 @@
-
 import type { NextPage } from 'next'
-import { Suspense, useEffect } from 'react'
 import dynamic from 'next/dynamic'
-// import { useAppDispatch, useAppSelector } from '../hooks/toolkitHooks'
-// import { fetchAllCountries } from '../redux/country/actions'
 import styles from '../styles/Home.module.scss'
 import Loading from '../components/Loading/Loading'
-const CountryList = dynamic(() => import("../components/CountryList/CountryList"))
+import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../hooks/toolkitHooks'
+import { fetchAllCountries } from '../redux/country/actions'
+import request from '../utils/Configs/request'
+import { BASE_URL } from '../utils/Configs/constants/api.endpoint'
+import axios from 'axios'
+import http from '../utils/Configs/constants/config'
+const CountryList = dynamic(() => import("../components/CountryList/CountryList"), {
+  loading: () => <Loading />
+})
 const Filters = dynamic(() => import('../components/filters/Filters'))
 
-const Home: NextPage = () => {
-  // const dispatch = useAppDispatch()
-  // const data = useAppSelector((state) => state)
+const Home: NextPage = ({ countries }: any) => {
 
-  // console.log(data)
+  const { data, loading, error } = useAppSelector((state) => state.allSlices.countries);
 
-  // useEffect(() => {
-  //   dispatch(fetchAllCountries())
-  // }, [])
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchAllCountries())
+  }, [dispatch])
+
+  if (loading) return <Loading />;
+  if (error) return <p>{error}</p>;
 
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <Suspense fallback={<Loading />}>
-          <Filters />
-          <CountryList />
-        </Suspense>
+        <Filters />
+        <CountryList countries={data} />
       </div>
     </main>
   )
 }
 
 export default Home
-

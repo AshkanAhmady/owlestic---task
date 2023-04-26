@@ -3,15 +3,14 @@ import styles from "./CountryList.module.scss"
 import dynamic from "next/dynamic";
 const SingleCountry = dynamic(() => import("../CountryCard/CountryCard"))
 
-const CountryList = () => {
-
+const CountryList = ({ countries }: any) => {
 
     return (
         <div className={styles.countryList}>
-            {[1, 1, 1, 1, 1, 1, 1, 1, 1].map((country, index) => {
+            {countries?.map((country: any, index: any) => {
                 return (
-                    <Link key={index} href={`/detail/3467`}>
-                        <SingleCountry />
+                    <Link key={index} href={`/detail/${country.name}`}>
+                        <SingleCountry country={country} />
                     </Link>
                 )
             })}

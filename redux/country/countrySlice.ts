@@ -1,39 +1,67 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllCountries } from "./actions";
-import { HYDRATE } from "next-redux-wrapper";
+import { combineReducers, createSlice } from "@reduxjs/toolkit";
+import { fetchAllCountries, fetchSingleCountry } from "./actions";
 
-const initialState: any = {
+const counrtyList: any = {
   loading: false,
   data: [],
   error: null,
 };
 
-const countrySlice = createSlice({
-  name: "country",
-  initialState,
+const countriesSlice = createSlice({
+  name: "countries",
+  initialState: counrtyList,
   reducers: {},
-  // extraReducers: {
-  //   [HYDRATE]: (state, action) => {
-  //     return { ...state, error: null, data: [], loading: true };
-  //   },
-  // },
-  // extraReducers: (builder) => {
-  //   builder.addCase(fetchAllCountries.pending, (state) => {
-  //     return { ...state, error: null, data: [], loading: true };
-  //   });
-  //   builder.addCase(fetchAllCountries.fulfilled, (state, action) => {
-  //     console.log(action);
-  //     return { ...state, error: null, data: action.payload, loading: false };
-  //   });
-  //   builder.addCase(fetchAllCountries.rejected, (state, action) => {
-  //     return {
-  //       ...state,
-  //       error: action.error.message,
-  //       data: [],
-  //       loading: false,
-  //     };
-  //   });
-  // },
+  extraReducers: (builder) => {
+    //allCountries
+    builder.addCase(fetchAllCountries.pending, (state) => {
+      return { ...state, error: null, data: [], loading: true };
+    });
+    builder.addCase(fetchAllCountries.fulfilled, (state, action) => {
+      return { ...state, error: null, data: action.payload, loading: false };
+    });
+    builder.addCase(fetchAllCountries.rejected, (state, action) => {
+      return {
+        ...state,
+        error: action.error.message,
+        data: [],
+        loading: false,
+      };
+    });
+  },
 });
 
-export default countrySlice.reducer;
+const singleCounrty: any = {
+  loading: false,
+  data: null,
+  error: null,
+};
+
+const singleCountrySlice = createSlice({
+  name: "countries",
+  initialState: singleCounrty,
+  reducers: {},
+  extraReducers: (builder) => {
+    //allCountries
+    builder.addCase(fetchSingleCountry.pending, (state) => {
+      return { ...state, error: null, data: null, loading: true };
+    });
+    builder.addCase(fetchSingleCountry.fulfilled, (state, action) => {
+      return { ...state, error: null, data: action.payload, loading: false };
+    });
+    builder.addCase(fetchSingleCountry.rejected, (state, action) => {
+      return {
+        ...state,
+        error: action.error.message,
+        data: [],
+        loading: false,
+      };
+    });
+  },
+});
+
+const rootReducer = combineReducers({
+  countries: countriesSlice.reducer,
+  singleCounrty: singleCountrySlice.reducer,
+});
+
+export default rootReducer;
