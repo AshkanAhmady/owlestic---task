@@ -7,7 +7,7 @@ const CountryList = ({ countries }: any) => {
 
     return (
         <div className={styles.countryList}>
-            {countries?.map((country: any, index: any) => {
+            {countries?.map((country: any, index: number) => {
                 return (
                     <Link key={index} href={`/detail/${country.name}`}>
                         <SingleCountry country={country} />

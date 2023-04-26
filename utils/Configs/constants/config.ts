@@ -15,7 +15,6 @@ http.interceptors.response.use(
   (error: AxiosError) => {
     const { response }: any = error;
     if (response) {
-      console.log(response);
       toast.error(`${response.data.message}`);
     }
   }

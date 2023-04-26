@@ -1,4 +1,5 @@
 import { combineReducers, createSlice } from "@reduxjs/toolkit";
+import { InitialSingleCountryStateType } from "../../types";
 import { fetchAllCountries, fetchSingleCountry } from "./actions";
 
 const counrtyList: any = {
@@ -74,7 +75,7 @@ const countriesSlice = createSlice({
   },
 });
 
-const singleCounrty: any = {
+const singleCounrty: InitialSingleCountryStateType = {
   loading: false,
   data: null,
   error: null,

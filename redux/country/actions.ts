@@ -15,10 +15,10 @@ export const fetchAllCountries = createAsyncThunk(
 
 export const fetchSingleCountry = createAsyncThunk(
   "singleCountry/fetchSingleCountry",
-  async (payload: any, { rejectWithValue }) => {
+  async (payload: string, { rejectWithValue }) => {
     try {
-      const data: any = await request.get(`/name/${payload}`);
-      return data[0];
+      const country: any = await request.get(`/name/${payload}`);
+      return country[0];
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
